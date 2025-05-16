@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Forwarding Setup Guide</title>
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #2c3e50;
+      --accent: #27ae60;
+      --light-bg: #f4f6f8;
+      --text: #333;
+      --border: #ddd;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .accordion {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .accordion summary {
+      cursor: pointer;
+      padding: 15px 20px;
+      font-weight: bold;
+      background-color: var(--white);
+      list-style: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion[open] summary {
+      background-color: var(--light-bg);
+    }
+
+    .accordion-content {
+      padding: 15px 20px;
+      line-height: 1.6;
+    }
+
+    .accordion-content ol {
+      padding-left: 20px;
+    }
+
+    .accordion-content li {
+      margin-bottom: 10px;
+    }
+
+    .note {
+      background: #e8f5e9;
+      border-left: 4px solid var(--accent);
+      padding: 10px 15px;
+      margin-top: 15px;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9em;
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Email Forwarding Setup Guide</h1>
+    <p>Learn how to automatically forward emails using Thunderbird, Outlook, and Gmail</p>
+  </header>
+
+  <div class="container">
+    <details class="accordion">
+      <summary>Mozilla Thunderbird</summary>
+      <div class="accordion-content">
+        <ol>
+          <li>Open Thunderbird and select your account from the left panel.</li>
+          <li>Click <strong>Tools</strong> &gt; <strong>Message Filters</strong>.</li>
+          <li>Click <strong>"New"</strong> to create a new filter.</li>
+          <li>Give the filter a name like <em>Forward to personal</em>.</li>
+          <li>Set the filter condition (e.g., "Match all messages").</li>
+          <li>In the actions, choose <strong>Forward Message To</strong> and enter the forwarding address.</li>
+          <li>Click <strong>OK</strong> and ensure the filter is enabled.</li>
+        </ol>
+        <div class="note">
+          Tip: Filters only apply to messages as they arrive. They won’t retroactively forward old emails.
+        </div>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Microsoft Outlook</summary>
+      <div class="accordion-content">
+        <ol>
+          <li>Go to <strong>File</strong> &gt; <strong>Manage Rules & Alerts</strong>.</li>
+          <li>Click <strong>"New Rule"</strong> under the Email Rules tab.</li>
+          <li>Select <strong>"Apply rule on messages I receive"</strong> and click <strong>Next</strong>.</li>
+          <li>Choose any conditions you want (or none to apply to all emails).</li>
+          <li>In actions, check <strong>"forward it to people or public group"</strong>.</li>
+          <li>Select the forwarding email address and finish the rule.</li>
+        </ol>
+        <div class="note">
+          Note: Outlook desktop rules only run when Outlook is open, unless configured on the server side (Exchange).
+        </div>
+      </div>
+    </details>
+
+    <details class="accordion">
+      <summary>Google Mail (Gmail)</summary>
+      <div class="accordion-content">
+        <ol>
+          <li>Click the gear icon and select <strong>See all settings</strong>.</li>
+          <li>Go to the <strong>Forwarding and POP/IMAP</strong> tab.</li>
+          <li>Click <strong>"Add a forwarding address"</strong> and enter the desired email.</li>
+          <li>Check your other inbox and confirm the verification link.</li>
+          <li>Back in Gmail settings, choose <strong>"Forward a copy of incoming mail to..."</strong>.</li>
+          <li>Decide if Gmail should keep a copy, archive, or delete it.</li>
+          <li>Click <strong>Save Changes</strong>.</li>
+        </ol>
+        <div class="note">
+          Tip: You can also set filters to forward only specific types of emails.
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <footer>
+    <p>Need help? Contact your IT team or system administrator.</p>
+    <p>Last updated: <span id="today-date"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  </script>
+</body>
+</html>
